@@ -1,13 +1,17 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Home from './views/Home';
+import { Col, Container, Row } from 'react-bootstrap';
 
-function App() {
+function PortfolioContainer() {
 
   return (
-    <div className="App">
-      Dinesh Portfolio
-        
-    </div>
+    <Container fluid>
+      <Row>
+        <Col><Home/></Col>
+      </Row>
+    </Container>
   )
 }
 
-export default App
+export default PortfolioContainer
