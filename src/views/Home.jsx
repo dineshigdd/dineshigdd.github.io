@@ -1,10 +1,11 @@
 import React from 'react'
 import myImage from '../assets/self.jpg'
 import { Image  } from 'react-bootstrap'
-
-
-
 import styled from 'styled-components'
+import HomeContainer from '../styles/styles'
+
+
+
 
 function Home() {
   return (
@@ -42,17 +43,17 @@ const ImageContainer = styled.div`
     }
 `
 
-const HomeContainer = styled.div`  
+// const HomeContainer = styled.div`  
    
-    place-items: center;
-    min-width: 320px;
-    min-height: 92vh;
+//     place-items: center;
+//     min-width: 320px;
+//     min-height: 92vh;
 
-    .inner-container{
-        width: fit-content;
-        flex-direction: column;
-        place-items: inherit;
-    }
-`
+//     .inner-container{
+//         width: fit-content;
+//         flex-direction: column;
+//         place-items: inherit;
+//     }
+// `
 
 
