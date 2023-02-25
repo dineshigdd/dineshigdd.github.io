@@ -4,12 +4,11 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 
 function Header() {
   return (
-    <div>
-        <Navbar bg="light">
+        <Navbar bg="light" expand="lg" fixed="top">
             <Container>
                 <Navbar.Brand href="#home">Dinesh</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse id="basic-navbar-nav" className='me-auto justify-content-end'>
                 <Nav>
                     <Nav.Link href="#home">About</Nav.Link>
                     <Nav.Link href="#features">Resume</Nav.Link>
@@ -18,7 +17,7 @@ function Header() {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-  </div>
+  
   )
 }
 
