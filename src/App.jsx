@@ -8,6 +8,7 @@ import Resume  from './views/Resume'
 import Portfolio from './views/Portfolio'
 
 
+
 import { BrowserRouter as Router,
   Routes,
   Route,
@@ -40,7 +41,7 @@ function PortfolioContainer() {
               <Route path="about" element={ <About />} />   
               <Route path="portfolio" element={ <Portfolio /> } />                  
               <Route path="contact" element={ <Contact /> } /> 
-              <Route path="resume" element={<Resume />} />
+              <Route path="resume" element={ <Resume />} />
               
             </Routes>
         </Router>      
