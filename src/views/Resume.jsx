@@ -5,8 +5,9 @@ import resumePDF from "./Resume23.pdf"
 import styled from 'styled-components'
 // pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 import { Document, Page   } from 'react-pdf/dist/esm/entry.vite'
-// import "react-pdf/dist/esm/Page/TextLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
+import { Button } from 'bootstrap';
 
 // import { Document, Page } from 'react-pdf/dist/esm/entry.webpack5';
 
@@ -34,26 +35,51 @@ function Resume() {
  }
 
   return (
-    
+    <div>
       <ResumeContainer>          
       {/* {pdfFile && ( */}
-        <Document file={resumePDF} onLoadSuccess={onDocumentLoadSuccess}>
-          <Page pageNumber={pageNumber} renderTextLayer={false} />
-          
-        </Document>
+       
+        <ResumeInnerContainer file={resumePDF} onLoadSuccess={onDocumentLoadSuccess}>
+          <Page pageNumber={pageNumber}
+           renderTextLayer={false}            
+           canvasBackground="#e6ffff"
+           width={ 800 }
+           
+           />
+
+        </ResumeInnerContainer>
       {/* )} */}
       </ResumeContainer>
+    
+      <DownloadButton className="btn btn-primary">Download resume </DownloadButton>
           
-      
+      </div>
           
     );
 }
 
 export default Resume;
 
+
+ 
 const ResumeContainer = styled.div`
     display: flex;
     justify-content: center;
-    z-index: 1000;
+    z-index: 1000;    
 `
  
+const ResumeInnerContainer = styled( Document)`  
+    padding: 20px;
+    background: gray;
+    margin-top:100px;
+`
+
+const DownloadButton = styled.button`
+  position: absolute;
+  top:100px;
+  right:140px;
+  z-index: 500; 
+  border-radius: 50px;
+  padding:5px 10px; 
+`
+
