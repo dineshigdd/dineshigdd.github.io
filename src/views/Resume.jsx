@@ -8,6 +8,7 @@ import { Document, Page   } from 'react-pdf/dist/esm/entry.vite'
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import { Button } from 'bootstrap';
+import { FileEarmarkArrowDownFill } from 'react-bootstrap-icons';
 
 // import { Document, Page } from 'react-pdf/dist/esm/entry.webpack5';
 
@@ -65,8 +66,8 @@ const onButtonClick = () => {
         </ResumeInnerContainer>
       {/* )} */}
       </ResumeContainer>
-    
-      <DownloadButton className="btn btn-primary" onClick={onButtonClick}>Download resume </DownloadButton>
+      
+      <DownloadButton  onClick={onButtonClick } size={ 50 }/>
           
       </div>
           
@@ -89,12 +90,15 @@ const ResumeInnerContainer = styled( Document)`
     margin-top:100px;
 `
 
-const DownloadButton = styled.button`
+const DownloadButton = styled(FileEarmarkArrowDownFill)`
   position: absolute;
   top:100px;
   right:140px;
-  z-index: 500; 
-  border-radius: 50px;
-  padding:5px 10px; 
+  color:#0b5ed7;
+  cursor: pointer;
+  
+  /* z-index: 500;  */
+  /* border-radius: 50px; */
+  /* padding:5px 10px;  */
 `
 
