@@ -93,7 +93,7 @@ const ResumeInnerContainer = styled( Document)`
 const DownloadButton = styled(FileEarmarkArrowDownFill)`
   position: absolute;
   top:100px;
-  right:140px;
+  right:250px;
   color:#0b5ed7;
   cursor: pointer;
   

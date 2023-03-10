@@ -6,7 +6,7 @@ import  About  from './views/About'
 import Contact from './views/Contact'
 import Resume  from './views/Resume'
 import Portfolio from './views/Portfolio'
-
+import { useEffect, useState } from 'react'
 
 
 import { BrowserRouter as Router,
@@ -14,9 +14,36 @@ import { BrowserRouter as Router,
   Route,
   Link
 } from "react-router-dom";
+import ResumeMobile from './views/ResumeMobile'
+
+
+
 
 function PortfolioContainer() {
-  
+
+  const [ state, setState ] = useState( null );
+
+  useEffect(()=>{
+    addEventListener("load", (event) =>  {
+
+      if(  window.innerWidth >= 768 ){
+        setState( <Resume/>)
+      }else{
+        setState( <ResumeMobile />)
+      }
+    },[window.innerWidth]);
+    
+    addEventListener("resize", (event) =>  {
+
+      if(  window.innerWidth >= 768 ){
+        setState( <Resume/>)
+      }else{
+        setState( <ResumeMobile />)
+      }
+    },[window.innerWidth]);
+
+  })
+
   return (
     <Container fluid>
       <Row>
@@ -41,7 +68,7 @@ function PortfolioContainer() {
               <Route path="about" element={ <About />} />   
               <Route path="portfolio" element={ <Portfolio /> } />                  
               <Route path="contact" element={ <Contact /> } /> 
-              <Route path="resume" element={ <Resume />} />
+              <Route path="resume" element={ state } />
               
             </Routes>
         </Router>      
