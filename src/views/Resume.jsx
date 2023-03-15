@@ -30,21 +30,7 @@ function Resume() {
   //   fetchPdf();
   // }, []);
 
-// Function will execute on click of button
-const onButtonClick = () => {
-  // using JavaScript method to get PDF file
-  fetch(resumePDF).then(response => {
-      response.blob().then(blob => {
-          // Creating new object of PDF file
-          const fileURL = window.URL.createObjectURL(blob);
-          // Setting various property values
-          let alink = document.createElement('a');
-          alink.href = fileURL;
-          alink.download = 'DineshResume.pdf';
-          alink.click();
-      })
-  })
-}
+
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -67,7 +53,10 @@ const onButtonClick = () => {
       {/* )} */}
       </ResumeContainer>
       
-      <DownloadButton  onClick={onButtonClick } size={ 50 }/>
+      <a href={ resumePDF } download="DineshResume">
+          <DownloadButton  size={ 50 } />
+      </a>
+
           
       </div>
           
@@ -96,9 +85,5 @@ const DownloadButton = styled(FileEarmarkArrowDownFill)`
   right:250px;
   color:#0b5ed7;
   cursor: pointer;
-  
-  /* z-index: 500;  */
-  /* border-radius: 50px; */
-  /* padding:5px 10px;  */
 `
 
