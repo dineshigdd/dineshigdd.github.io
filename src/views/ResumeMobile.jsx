@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet , PDFViewer } from '@react-pdf/renderer';
-import styled from 'styled-components'
+
 
 
 // // Create styles
