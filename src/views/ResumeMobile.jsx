@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const styles = StyleSheet.create({
   page: { backgroundColor: 'whitesmoke' },
   section: {
-     color: 'gray', 
+     color: 'rgba(0,0,0,0.75)', 
      textAlign: 'left', 
      margin: 30,
       
@@ -25,16 +25,31 @@ const styles = StyleSheet.create({
   },
 
   secionHeader:{
-    fontSize:22,    
-    color:'black'
-    
+    fontSize:25,    
+    color:'rgba(0, 0, 0, 0.9)',
+    borderColor:'rgba( 0,0,0, 0.3)',
+    borderBottom: 0.8,   
+    paddingBottom: 5,   
   },
 
   subSection:{
     margin:10
   },
 
+  subSectionHeader :{
+    color:'rgba(0, 0, 0, 0.9)',
+    fontSize:22,   
+    fontWeight:'heavy'   
+  },
 
+  ListItems:{
+    color: 'rgba( 0,0,0, 0.6)',
+    marginLeft:15,
+    paddingLeft:8,
+    borderColor:'rgba( 0,0,0, 0.3)',
+    borderLeft: 0.8,    
+    lineHeight:1.5
+  }
 });
 
 
@@ -43,7 +58,7 @@ const styles = StyleSheet.create({
 const ResumeMobile = () => (
  <PDFViewer height='500vh'>
   <Document>
-    <Page size="A4" wrap={false}>
+    <Page size="A4" style={ styles.page }wrap={false}>
       <View style={ styles.header }>
         <Text>Daminda Dinesh Imaduwa Gamage</Text>
         <Text>dineshigdd@gmail.com | (818) 984-2616</Text>
@@ -51,68 +66,90 @@ const ResumeMobile = () => (
       </View>
 
       <View style={ styles.section}>
-
           <Text style={ styles.secionHeader }>Education</Text>
           <View style={ styles.subSection }>               
-            <Text>Western Governors University ( Dec 2017 - Jun 2019 )</Text>
-            <Text>Bachelor of Software Development</Text>
-            <Text>Courses: Java, Software development, Mobile app development, UI & UX</Text>
+            <Text style={ styles.subSectionHeader }>Western Governors University </Text>
+            <Text>Bachelor's Degree, Software Development</Text>    
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Dec 2017 - Jun 2019</Text>      
           </View>
+
           <View style={ styles.subSection }>
-            <Text>Los Angeles Valley College Feb 2014</Text>
-            <Text>Western Governors University </Text>
-            <Text>Feb 2014 – June 2016</Text>
-            <Text>Associate of Science in Computer Science</Text>
-            <Text>Courses: OOP concepts , Web Programming, Data Structures and Algorithms, Operating Systems</Text>
+            <Text style={ styles.subSectionHeader }>Los Angeles Valley College</Text>    
+            <Text>Associate of Science in Computer Science</Text>     
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Feb 2014 - June 2016</Text>       
           </View>
       </View>
 
-      <View style={ styles.section }>    
-      <Text style={ styles.secionHeader }>Skills</Text>
-         <View  style={ styles.subSection }>          
-            <Text>Languages : JavaScript, C++, Java , PHP</Text>          
-            <Text>Technologies: React.js, MySQL, MongoDB, Express, Node, Bash, Git, WordPress</Text>
-         </View>          
-      </View> 
-
-      <View style={ styles.section}> 
-        <Text style={ styles.secionHeader }>Experience</Text>   
-          <View style={ styles.subSection }>        
-            <Text>Intranet site for ACE, a non-profit organization ,Canoga Park, CA</Text>          
-            <Text>WordPress Developer from Oct 2016 – Dec 2017</Text>
-            <Text>Gather user requirements and analyze the existing system</Text>
-            <Text>Identify technologies to and developed a custom intranet system</Text>
-            <Text>Provided teaching for the staff to work with the new system</Text>
+       <View style={ styles.section}>
+          <Text style={ styles.secionHeader }>Skills</Text>
+          <View style={ styles.subSection }>               
+            <Text style={ [ styles.subSectionHeader ,{ paddingBottom: 5 }] }>Languages</Text>               
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>JavaScript, PHP</Text>      
           </View>
 
-          <View style={ styles.subSection }>    
-            <Text>Ace Film Studio, Burbank, CA</Text>
-            <Text>Intranet site for ACE, a non-profit organization</Text>          
-            <Text>WordPress Developer from Jan 2020 – Jan 2020</Text>
-            <Text>Identify specific user requirements</Text>
-            <Text>Develop a custom portfolio website based on user requirements</Text>
-            <Text>Provide maintenance and ongoing development</Text>
-      </View> 
-     </View> 
+          <View style={ styles.subSection }>
+            <Text style={ [ styles.subSectionHeader ,{ paddingBottom: 5 }]}>Technologies</Text>     
+            <View style={ { color: 'rgba( 0,0,0, 0.5)', lineHeight:1.25 }}>
+              <Text>React, Express, MongoDB, Node</Text>
+              <Text>MySQL, WordPress</Text>
+              <Text>Git & GitHub</Text>
+            </View>            
+          </View>
+      </View>
 
-     <View style={ styles.section}>
-     <Text style={ styles.secionHeader }>Open-source projects</Text>
-        <View style={ styles.subSection }>   
-          <Text>Disaster Accountability Project (https://www.smartresponse.org/)</Text>
-          <Text>Frontend Developer Oct 2017 – Jan 2018</Text>
-          <Text>Collaborate with a large team of developers on a private GitHub project</Text>
-          <Text>Involved in implementing the UI of the web Application</Text>
+      <View style={ styles.section}>
+          <Text style={ styles.secionHeader }>Experience</Text>
+          <View style={ styles.subSection }>               
+            <Text style={ styles.subSectionHeader }>ACE organization, Canoga Park, CA</Text>
+            <Text>WordPress Developer</Text>    
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Oct 2016 – Dec 2017</Text>      
+            <View style={ styles.ListItems }>
+                <Text>Gather user requirements and analyze the existing system</Text>
+                <Text>Identify technologies and developed a custom intranet system</Text>
+                <Text>Provided teaching for the staff to work with the new system</Text>
+            </View>
+          </View>
+
+          <View style={ styles.subSection }>
+            <Text style={ styles.subSectionHeader }>Ace Film Studio, Burbank, CA</Text>    
+            <Text>WordPress Developer</Text>  
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Jan 2020 – Jan 2020</Text>  
+            <View style={ styles.ListItems }>
+                <Text>Identify specific user requirements</Text>
+                <Text>Implement a custom portfolio website</Text>
+                <Text>Provide maintenance and ongoing development</Text> 
+            </View>    
+          </View>
+      </View>
+
+      
+      <View style={ styles.section}>
+          <Text style={ styles.secionHeader }>Open-source projects</Text>
+          
+          <View style={ styles.subSection }>               
+            <Text style={ styles.subSectionHeader }>Disaster Accountability Project</Text>
+            <Text>Frontend Developer</Text>    
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Oct 2017 – Jan 2018</Text>
+          </View>
+
+          <View style={ styles.subSection }>
+            <Text style={ styles.subSectionHeader }>FreeCodeCamp/chapter</Text>  
+            <Text>Frontend Developer</Text> 
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>since Dec 2022</Text> 
+          </View>
+
+          <View style={ styles.subSection }>  
+            <Text style={ styles.subSectionHeader }>Ayushpanditmoto/CollegeReboot</Text>       
+            <Text>React Developer</Text>      
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>since Dec 2022</Text>       
+          </View>
+
+          <View style={ styles.subSection }>          
+            <Text style={ styles.subSectionHeader }>Nayak/AlgoListed</Text>
+            <Text>React Developer</Text>    
+            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>since Jan 2023</Text>
         </View>
-        <View style={ styles.subSection }>
-          <Text>since Dec 2022</Text>
-          <Text>FreeCodeCamp/chapter</Text>
-          <Text>Ayushpanditmoto/CollegeReboot</Text>
-        </View>
-        <View style={ styles.subSection }>
-          <Text>since Jan 2023</Text>
-          <Text>Nayak/AlgoListed</Text>
-        </View>
-     </View>
+      </View>    
    
     </Page>
   </Document>
