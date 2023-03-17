@@ -1,159 +1,173 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet , PDFViewer } from '@react-pdf/renderer';
+import styled from 'styled-components'
+import { Container, Row , Col } from 'react-bootstrap'
+import HomeContainer from '../styles/styles';
+  
+// Create Document Component
+const ResumeMobile = () => ( 
+  <MobileResumeContainer>
+     <ResumeHeader> 
+        <Col>   
+          <p>Daminda Dinesh Imaduwa Gamage</p>
+          <p>dineshigdd@gmail.com | ( 818 ) 984-2616</p>
+          <p>www.linkedin.com/in/damindadinesh</p>
+        </Col>  
+     </ResumeHeader>
+
+     <ResumeBody  xs={1} md={ 1}>
+          <Section>    
+            <h2 className="secionHeader">Education</h2>
+            <div className="subBody">               
+                  <h4>Western Governors University </h4>
+                  <p>Bachelor's Degree, Software Development</p>    
+                  <p className='duration'>Dec 2017 - Jun 2019</p>      
+            </div>    
+          
+            <div className="subBody"> 
+                  <h4>Los Angeles Valley College</h4>    
+                  <p>Associate of Science in Computer Science</p>     
+                  <p className='duration'>Feb 2014 - June 2016</p> 
+            </div>
+          </Section>  
+
+          <Section>    
+            <h2 className="secionHeader">Skills</h2>
+            <div className="subBody">               
+                  <h4>Languages</h4>
+                  <p>JavaScript, PHP</p>                        
+            </div>    
+          
+            <div className="subBody"> 
+                  <h4>Technologies</h4>    
+                  <p>React, Express, MongoDB, Node</p>     
+                  <p>MySQL, WordPress</p> 
+                  <p>Git & GitHub</p> 
+            </div>
+          </Section> 
+
+          <Section>    
+            <h2 className="secionHeader">Experience</h2>
+            <div className="subBody">               
+                  <h4>ACE organization, Canoga Park, CA</h4>
+                  <p>WordPress Developer</p>
+                  <p className='duration'>Oct 2016 - Dec 2017</p>      
+                  <ul>
+                    <li>Gather user requirements and analyze the existing system</li>
+                    <li>Identify technologies and developed a custom intranet system</li>
+                    <li>Provided teaching for the staff to work with the new system</li>
+                  </ul>                  
+            </div>    
+          
+            <div className="subBody"> 
+                  <h4>Ace Film Studio, Burbank, CA</h4>  
+                  <p>WordPress Developer</p>  
+                  <p className='duration'>Jan 2020 - Jan 2020</p>
+                  <ul>
+                    <li>Identify specific user requirements</li>
+                    <li>Implement a custom portfolio website</li>
+                    <li>Provide maintenance and ongoing development</li>
+                  </ul> 
+            </div>
+          </Section>  
+
+          <Section>    
+            <h2 className="secionHeader">Open-source projects</h2>
+            <div className="subBody">               
+                  <h4>Disaster Accountability Project</h4>
+                  <p>Frontend Developer</p>
+                  <p className='duration'>Oct 2017 - Jan 2018</p>                             
+            </div>
+            
+            <div className="subBody">               
+                  <h4>FreeCodeCamp/chapter</h4>
+                  <p>Frontend Developer</p>
+                  <p className='duration'>since Dec 2022</p>                             
+            </div>    
+            
+            <div className="subBody"> 
+                  <h4>Ayushpanditmoto/CollegeReboot</h4>  
+                  <p>React Developer</p>  
+                  <p className='duration'>since Dec 2022</p>                  
+            </div>
+
+            <div className="subBody"> 
+                  <h4>Nayak/AlgoListed</h4>  
+                  <p>React Developer</p>  
+                  <p className='duration'>since Jan 2023</p>                  
+            </div>
+          
+          </Section>  
+      
+    </ResumeBody>    
+  </MobileResumeContainer>
+
+);
+
+
+export default ResumeMobile;
 
 
 
 // // Create styles
+const MobileResumeContainer = styled( Container)`
+    position:relative;   
+    background-color: #d9e2eb;
+    top: 10vh;
+`;
 
-const styles = StyleSheet.create({
-  page: { backgroundColor: 'whitesmoke' },
-  section: {
-     color: 'rgba(0,0,0,0.75)', 
-     textAlign: 'left', 
-     margin: 30,
-      
-    },
 
-  header:{
-     backgroundColor:'#3E3E3E',
-     color: 'whitesmoke', 
-     textAlign: 'center',     
-     fontSize:25,
-     paddingTop:25,
-     paddingBottom:25,
-     lineHeight:1.25,
-  },
+const ResumeHeader = styled(Row)`
+     background-color:#3E3E3E;
+     color: #f5f5f5; 
+     position:inherit;
+     display:block;
+     text-align: center;     
+     font-size:20px;    
+     padding: 20px 0;
+     
+     p{
+        line-height: 10px;
+        letter-spacing: 1px;
+     }
+`;
 
-  secionHeader:{
-    fontSize:25,    
-    color:'rgba(0, 0, 0, 0.9)',
-    borderColor:'rgba( 0,0,0, 0.3)',
-    borderBottom: 0.8,   
-    paddingBottom: 5,   
-  },
+const ResumeBody = styled(Row)`    
+    position:relative;
+    margin-top:5vh;
+    text-align:left;    
+`;
 
-  subSection:{
-    margin:10
-  },
 
-  subSectionHeader :{
-    color:'rgba(0, 0, 0, 0.9)',
-    fontSize:22,   
-    fontWeight:'heavy'   
-  },
+const Section = styled(Col)`
+      color:rgba(0,0,0,0.75);
+      text-align: left; 
 
-  ListItems:{
-    color: 'rgba( 0,0,0, 0.6)',
-    marginLeft:15,
-    paddingLeft:8,
-    borderColor:'rgba( 0,0,0, 0.3)',
-    borderLeft: 0.8,    
-    lineHeight:1.5
+    .secionHeader{
+      font-size:25px;    
+      color:rgba(0, 0, 0,0.9);
+      border-color:rgba( 0,0,0, 0.3);
+      border-bottom: 0.8px;
+      padding-bottom: 5px;
+      margin-bottom:15px;
   }
-});
+
+   .subBody{   
+      line-height:8px;
+      margin-left: 10px;
+      margin-bottom: 30px;
+
+      h4{
+        color:rgba(0, 0, 0, 0.8);
+      }
+
+      .duration{
+        color:rgba(0, 0, 0,0.5 );
+      }
+
+      li{
+        line-height: 25px;
+      }
+  }
+`;
 
 
-  
-// Create Document Component
-const ResumeMobile = () => (
- <PDFViewer height='500vh'>
-  <Document>
-    <Page size="A4" style={ styles.page }wrap={false}>
-      <View style={ styles.header }>
-        <Text>Daminda Dinesh Imaduwa Gamage</Text>
-        <Text>dineshigdd@gmail.com | (818) 984-2616</Text>
-        <Text>www.linkedin.com/in/damindadinesh</Text>        
-      </View>
-
-      <View style={ styles.section}>
-          <Text style={ styles.secionHeader }>Education</Text>
-          <View style={ styles.subSection }>               
-            <Text style={ styles.subSectionHeader }>Western Governors University </Text>
-            <Text>Bachelor's Degree, Software Development</Text>    
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Dec 2017 - Jun 2019</Text>      
-          </View>
-
-          <View style={ styles.subSection }>
-            <Text style={ styles.subSectionHeader }>Los Angeles Valley College</Text>    
-            <Text>Associate of Science in Computer Science</Text>     
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Feb 2014 - June 2016</Text>       
-          </View>
-      </View>
-
-       <View style={ styles.section}>
-          <Text style={ styles.secionHeader }>Skills</Text>
-          <View style={ styles.subSection }>               
-            <Text style={ [ styles.subSectionHeader ,{ paddingBottom: 5 }] }>Languages</Text>               
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>JavaScript, PHP</Text>      
-          </View>
-
-          <View style={ styles.subSection }>
-            <Text style={ [ styles.subSectionHeader ,{ paddingBottom: 5 }]}>Technologies</Text>     
-            <View style={ { color: 'rgba( 0,0,0, 0.5)', lineHeight:1.25 }}>
-              <Text>React, Express, MongoDB, Node</Text>
-              <Text>MySQL, WordPress</Text>
-              <Text>Git & GitHub</Text>
-            </View>            
-          </View>
-      </View>
-
-      <View style={ styles.section}>
-          <Text style={ styles.secionHeader }>Experience</Text>
-          <View style={ styles.subSection }>               
-            <Text style={ styles.subSectionHeader }>ACE organization, Canoga Park, CA</Text>
-            <Text>WordPress Developer</Text>    
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Oct 2016 – Dec 2017</Text>      
-            <View style={ styles.ListItems }>
-                <Text>Gather user requirements and analyze the existing system</Text>
-                <Text>Identify technologies and developed a custom intranet system</Text>
-                <Text>Provided teaching for the staff to work with the new system</Text>
-            </View>
-          </View>
-
-          <View style={ styles.subSection }>
-            <Text style={ styles.subSectionHeader }>Ace Film Studio, Burbank, CA</Text>    
-            <Text>WordPress Developer</Text>  
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Jan 2020 – Jan 2020</Text>  
-            <View style={ styles.ListItems }>
-                <Text>Identify specific user requirements</Text>
-                <Text>Implement a custom portfolio website</Text>
-                <Text>Provide maintenance and ongoing development</Text> 
-            </View>    
-          </View>
-      </View>
-
-      
-      <View style={ styles.section}>
-          <Text style={ styles.secionHeader }>Open-source projects</Text>
-          
-          <View style={ styles.subSection }>               
-            <Text style={ styles.subSectionHeader }>Disaster Accountability Project</Text>
-            <Text>Frontend Developer</Text>    
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>Oct 2017 – Jan 2018</Text>
-          </View>
-
-          <View style={ styles.subSection }>
-            <Text style={ styles.subSectionHeader }>FreeCodeCamp/chapter</Text>  
-            <Text>Frontend Developer</Text> 
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>since Dec 2022</Text> 
-          </View>
-
-          <View style={ styles.subSection }>  
-            <Text style={ styles.subSectionHeader }>Ayushpanditmoto/CollegeReboot</Text>       
-            <Text>React Developer</Text>      
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>since Dec 2022</Text>       
-          </View>
-
-          <View style={ styles.subSection }>          
-            <Text style={ styles.subSectionHeader }>Nayak/AlgoListed</Text>
-            <Text>React Developer</Text>    
-            <Text style={ { color: 'rgba( 0,0,0, 0.5)' }}>since Jan 2023</Text>
-        </View>
-      </View>    
-   
-    </Page>
-  </Document>
-  </PDFViewer>
-);
-
-export default ResumeMobile
