@@ -51,7 +51,7 @@ function PortfolioContainer() {
 
   return (
     <Container fluid>
-       <Router basename={ "dineshigdd.github.io/" }>
+       <Router basename={ process.env.basename }>
           <Row className='d-flex flex-column'>     
             <Col>
               <Navbar bg="light" expand="lg" fixed="top">
