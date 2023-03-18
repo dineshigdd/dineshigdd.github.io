@@ -20,19 +20,19 @@ import { BrowserRouter as Router,
 
 
 
-
+const Resume = lazy(() => import('./views/Resume'));
 
 
 function PortfolioContainer() {
-  const Resume = lazy(() => import('./views/Resume'));
-
+  
+  
   const [ state, setState ] = useState( null );
 
   useEffect(()=>{
     addEventListener("load", (event) =>  {
 
       if(  window.innerWidth >= 768 ){
-        setState( <Resume/>)
+        startTransition( () => setState( <Resume /> ) );
       }else{
         setState( <ResumeMobile />)
       }
@@ -41,7 +41,7 @@ function PortfolioContainer() {
     addEventListener("resize", (event) =>  {
 
       if(  window.innerWidth >= 768 ){
-        startTransition( setState( <Resume/>) )
+        startTransition( ()=> setState( <Resume /> ) );
       }else{
         setState( <ResumeMobile />)
       }
