@@ -18,12 +18,12 @@ import { BrowserRouter as Router,
 } from "react-router-dom";
 
 
-const Resume = lazy(() => import('./views/Resume'));
+
 
 
 
 function PortfolioContainer() {
-
+  const Resume = lazy(() => import('./views/Resume'));
   const [ state, setState ] = useState( null );
 
   useEffect(()=>{
