@@ -4,11 +4,11 @@ import { Container, Nav, Navbar, Row, Col, NavLink, NavItem } from 'react-bootst
 import  Home  from './views/Home'
 import  About  from './views/About'
 import Contact from './views/Contact'
-import Resume  from './views/Resume'
+// import Resume  from './views/Resume'
 import ResumeMobile from './views/ResumeMobile'
 import Portfolio from './views/Portfolio'
 import styled from 'styled-components'
-import { useEffect, useState } from 'react'
+import { lazy, useEffect, useState } from 'react'
 
 
 import { BrowserRouter as Router,
@@ -18,7 +18,7 @@ import { BrowserRouter as Router,
 } from "react-router-dom";
 
 
-
+const Resume = lazy(() => import('./views/Resume'));
 
 
 
@@ -49,7 +49,7 @@ function PortfolioContainer() {
 
   return (
     <Container fluid>
-       <Router basename={ "dineshigdd.github.io/" }>
+       <Router>
           <Row className='d-flex flex-column'>     
             <Col>
               <Navbar bg="light" expand="lg" fixed="top">
