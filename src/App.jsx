@@ -8,7 +8,8 @@ import Contact from './views/Contact'
 import ResumeMobile from './views/ResumeMobile'
 import Portfolio from './views/Portfolio'
 import styled from 'styled-components'
-import { lazy, useEffect, useState } from 'react'
+import { lazy, startTransition , useEffect, useState } from 'react'
+
 
 
 import { BrowserRouter as Router,
@@ -24,6 +25,7 @@ import { BrowserRouter as Router,
 
 function PortfolioContainer() {
   const Resume = lazy(() => import('./views/Resume'));
+
   const [ state, setState ] = useState( null );
 
   useEffect(()=>{
@@ -39,7 +41,7 @@ function PortfolioContainer() {
     addEventListener("resize", (event) =>  {
 
       if(  window.innerWidth >= 768 ){
-        setState( <Resume/>)
+        startTransition( setState( <Resume/>) )
       }else{
         setState( <ResumeMobile />)
       }
