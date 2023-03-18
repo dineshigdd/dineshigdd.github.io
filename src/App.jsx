@@ -51,7 +51,7 @@ function PortfolioContainer() {
 
   return (
     <Container fluid>
-       <Router basename={ process.env.basename }>
+       <Router>
           <Row className='d-flex flex-column'>     
             <Col>
               <Navbar bg="light" expand="lg" fixed="top">
