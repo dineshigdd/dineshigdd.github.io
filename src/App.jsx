@@ -8,7 +8,7 @@ import Contact from './views/Contact'
 import ResumeMobile from './views/ResumeMobile'
 import Portfolio from './views/Portfolio'
 import styled from 'styled-components'
-import { lazy, startTransition , useEffect, useState } from 'react'
+import { lazy, Suspense , startTransition , useEffect, useState } from 'react'
 
 
 
@@ -32,7 +32,7 @@ function PortfolioContainer() {
     addEventListener("load", (event) =>  {
 
       if(  window.innerWidth >= 768 ){
-        startTransition( () => setState( <Resume /> ) );
+        startTransition( () => setState( <Suspense fallback={<div>Loading...</div>}><Resume /></Suspense> ) );
       }else{
         setState( <ResumeMobile />)
       }
