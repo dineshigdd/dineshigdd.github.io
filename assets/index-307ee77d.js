@@ -13099,7 +13099,7 @@ function useLinkClickHandler(to, _temp) {
     }
   }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
 }
-const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-59e3e0f5.js"), true ? ["assets/Resume-59e3e0f5.js","assets/Resume-d61b8e4b.css"] : void 0));
+const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-b1bdd49e.js"), true ? ["assets/Resume-b1bdd49e.js","assets/Resume-d61b8e4b.css"] : void 0));
 function PortfolioContainer() {
   const [state, setState] = reactExports.useState(null);
   reactExports.useEffect(() => {
@@ -13118,7 +13118,7 @@ function PortfolioContainer() {
       }
     }, [window.innerWidth]);
   });
-  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(BrowserRouter, { basename: "dineshigdd.github.io/", children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
+  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(BrowserRouter, { children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
     /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsx(Navbar$1, { bg: "light", expand: "lg", fixed: "top", children: /* @__PURE__ */ jsxs(Container$1, { children: [
       /* @__PURE__ */ jsx(Navbar$1.Brand, { children: /* @__PURE__ */ jsx(Link, { to: "dineshigdd.github.io/", children: "Dinesh" }) }),
       /* @__PURE__ */ jsx(Navbar$1.Toggle, { "aria-controls": "basic-navbar-nav" }),
@@ -13130,7 +13130,7 @@ function PortfolioContainer() {
       ] }) })
     ] }) }) }),
     /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsxs(Routes, { children: [
-      /* @__PURE__ */ jsx(Route, { path: "dineshigdd.github.io/", element: /* @__PURE__ */ jsx(Home, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "about", element: /* @__PURE__ */ jsx(About, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "portfolio", element: /* @__PURE__ */ jsx(Portfolio, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "contact", element: /* @__PURE__ */ jsx(Contact, {}) }),
