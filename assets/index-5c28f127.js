@@ -13119,7 +13119,7 @@ function useLinkClickHandler(to, _temp) {
     }
   }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
 }
-const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-cd36b8ef.js"), true ? ["assets/Resume-cd36b8ef.js","assets/Resume-d61b8e4b.css"] : void 0));
+const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-ea5ada50.js"), true ? ["assets/Resume-ea5ada50.js","assets/Resume-d61b8e4b.css"] : void 0));
 function PortfolioContainer() {
   const [state, setState] = reactExports.useState(null);
   reactExports.useEffect(() => {
@@ -13138,7 +13138,7 @@ function PortfolioContainer() {
       }
     }, [window.innerWidth]);
   });
-  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(HashRouter, { basename: "/", children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
+  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(HashRouter, { children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
     /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsx(Navbar$1, { bg: "light", expand: "lg", fixed: "top", children: /* @__PURE__ */ jsxs(Container$1, { children: [
       /* @__PURE__ */ jsx(Navbar$1.Brand, { children: /* @__PURE__ */ jsx(Link, { to: "/", children: "Dinesh" }) }),
       /* @__PURE__ */ jsx(Navbar$1.Toggle, { "aria-controls": "basic-navbar-nav" }),
