@@ -11884,16 +11884,16 @@ var Action;
   Action2["Replace"] = "REPLACE";
 })(Action || (Action = {}));
 const PopStateEventType = "popstate";
-function createBrowserHistory(options) {
+function createHashHistory(options) {
   if (options === void 0) {
     options = {};
   }
-  function createBrowserLocation(window2, globalHistory) {
+  function createHashLocation(window2, globalHistory) {
     let {
-      pathname,
-      search,
-      hash
-    } = window2.location;
+      pathname = "/",
+      search = "",
+      hash = ""
+    } = parsePath(window2.location.hash.substr(1));
     return createLocation(
       "",
       {
@@ -11906,14 +11906,34 @@ function createBrowserHistory(options) {
       globalHistory.state && globalHistory.state.key || "default"
     );
   }
-  function createBrowserHref(window2, to) {
-    return typeof to === "string" ? to : createPath(to);
+  function createHashHref(window2, to) {
+    let base = window2.document.querySelector("base");
+    let href = "";
+    if (base && base.getAttribute("href")) {
+      let url = window2.location.href;
+      let hashIndex = url.indexOf("#");
+      href = hashIndex === -1 ? url : url.slice(0, hashIndex);
+    }
+    return href + "#" + (typeof to === "string" ? to : createPath(to));
   }
-  return getUrlBasedHistory(createBrowserLocation, createBrowserHref, null, options);
+  function validateHashLocation(location, to) {
+    warning$1(location.pathname.charAt(0) === "/", "relative pathnames are not supported in hash history.push(" + JSON.stringify(to) + ")");
+  }
+  return getUrlBasedHistory(createHashLocation, createHashHref, validateHashLocation, options);
 }
 function invariant(value, message) {
   if (value === false || value === null || typeof value === "undefined") {
     throw new Error(message);
+  }
+}
+function warning$1(cond, message) {
+  if (!cond) {
+    if (typeof console !== "undefined")
+      console.warn(message);
+    try {
+      throw new Error(message);
+    } catch (e2) {
+    }
   }
 }
 function createKey() {
@@ -12984,15 +13004,15 @@ function shouldProcessLinkClick(event, target) {
   !isModifiedEvent(event);
 }
 const _excluded = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset"];
-function BrowserRouter(_ref) {
+function HashRouter(_ref2) {
   let {
     basename,
     children,
     window: window2
-  } = _ref;
+  } = _ref2;
   let historyRef = reactExports.useRef();
   if (historyRef.current == null) {
-    historyRef.current = createBrowserHistory({
+    historyRef.current = createHashHistory({
       window: window2,
       v5Compat: true
     });
@@ -13099,7 +13119,7 @@ function useLinkClickHandler(to, _temp) {
     }
   }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
 }
-const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-0a3b1f80.js"), true ? ["assets/Resume-0a3b1f80.js","assets/Resume-d61b8e4b.css"] : void 0));
+const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-cd36b8ef.js"), true ? ["assets/Resume-cd36b8ef.js","assets/Resume-d61b8e4b.css"] : void 0));
 function PortfolioContainer() {
   const [state, setState] = reactExports.useState(null);
   reactExports.useEffect(() => {
@@ -13118,7 +13138,7 @@ function PortfolioContainer() {
       }
     }, [window.innerWidth]);
   });
-  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(BrowserRouter, { basename: "dineshigdd.github.io/", children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
+  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(HashRouter, { basename: "/", children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
     /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsx(Navbar$1, { bg: "light", expand: "lg", fixed: "top", children: /* @__PURE__ */ jsxs(Container$1, { children: [
       /* @__PURE__ */ jsx(Navbar$1.Brand, { children: /* @__PURE__ */ jsx(Link, { to: "/", children: "Dinesh" }) }),
       /* @__PURE__ */ jsx(Navbar$1.Toggle, { "aria-controls": "basic-navbar-nav" }),
@@ -13130,7 +13150,7 @@ function PortfolioContainer() {
       ] }) })
     ] }) }) }),
     /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsxs(Routes, { children: [
-      /* @__PURE__ */ jsx(Route, { path: "dineshigdd.github.io/", element: /* @__PURE__ */ jsx(Home, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "about", element: /* @__PURE__ */ jsx(About, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "portfolio", element: /* @__PURE__ */ jsx(Portfolio, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "contact", element: /* @__PURE__ */ jsx(Contact, {}) }),
