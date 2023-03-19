@@ -13099,7 +13099,7 @@ function useLinkClickHandler(to, _temp) {
     }
   }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
 }
-const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-ebc56a93.js"), true ? ["assets/Resume-ebc56a93.js","assets/Resume-d61b8e4b.css"] : void 0));
+const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-0a3b1f80.js"), true ? ["assets/Resume-0a3b1f80.js","assets/Resume-d61b8e4b.css"] : void 0));
 function PortfolioContainer() {
   const [state, setState] = reactExports.useState(null);
   reactExports.useEffect(() => {
@@ -13130,7 +13130,7 @@ function PortfolioContainer() {
       ] }) })
     ] }) }) }),
     /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsxs(Routes, { children: [
-      /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "dineshigdd.github.io/", element: /* @__PURE__ */ jsx(Home, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "about", element: /* @__PURE__ */ jsx(About, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "portfolio", element: /* @__PURE__ */ jsx(Portfolio, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "contact", element: /* @__PURE__ */ jsx(Contact, {}) }),
