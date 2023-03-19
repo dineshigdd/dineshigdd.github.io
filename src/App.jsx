@@ -12,7 +12,7 @@ import { lazy, Suspense , startTransition , useEffect, useState } from 'react'
 
 
 
-import { BrowserRouter as Router,
+import { HashRouter as Router,
   Routes,
   Route,
   Link,
@@ -52,8 +52,7 @@ function PortfolioContainer() {
 
   return (
     <Container fluid>
-       <Router>
-       <HashRouter basename="/">
+       <Router basename="/">       
           <Row className='d-flex flex-column'>     
             <Col>
               <Navbar bg="light" expand="lg" fixed="top">
@@ -81,8 +80,7 @@ function PortfolioContainer() {
                 </Routes>
             </Col>
          
-      </Row>
-      </HashRouter>
+      </Row>      
       </Router>     
     </Container>
   )
