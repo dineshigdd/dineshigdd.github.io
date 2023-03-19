@@ -51,12 +51,12 @@ function PortfolioContainer() {
 
   return (
     <Container fluid>
-       <Router>
+       <Router basename='/'>
           <Row className='d-flex flex-column'>     
             <Col>
               <Navbar bg="light" expand="lg" fixed="top">
                   <Container>
-                      <Navbar.Brand><Link to="dineshigdd.github.io/">Dinesh</Link></Navbar.Brand>
+                      <Navbar.Brand><Link to="/">Dinesh</Link></Navbar.Brand>
                       <Navbar.Toggle aria-controls="basic-navbar-nav" />
                       <Navbar.Collapse id="basic-navbar-nav" className='me-auto justify-content-end'>
                       <Nav>
