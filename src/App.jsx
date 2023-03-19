@@ -12,7 +12,7 @@ import { lazy, Suspense , startTransition , useEffect, useState } from 'react'
 
 
 
-import { HashRouter as Router,
+import { BrowserRouter as Router,
   Routes,
   Route,
   Link,
