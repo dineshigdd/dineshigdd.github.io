@@ -16,7 +16,6 @@ import { HashRouter as Router,
   Routes,
   Route,
   Link,
-  HashRouter
 } from "react-router-dom";
 
 
@@ -52,7 +51,7 @@ function PortfolioContainer() {
 
   return (
     <Container fluid>
-       <Router basename="/">       
+       <Router>
           <Row className='d-flex flex-column'>     
             <Col>
               <Navbar bg="light" expand="lg" fixed="top">
@@ -80,7 +79,7 @@ function PortfolioContainer() {
                 </Routes>
             </Col>
          
-      </Row>      
+      </Row>
       </Router>     
     </Container>
   )
