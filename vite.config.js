@@ -9,5 +9,5 @@ export default defineConfig({
   build: {
     minify: false,
   },
-  base:'damindadinesh.netlify.app/'
+  base:'/'
 })
