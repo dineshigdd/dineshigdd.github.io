@@ -9,5 +9,5 @@ export default defineConfig({
   build: {
     minify: false,
   },
-  base:'/'
+  base:'/dineshigdd.github.io/'
 })
