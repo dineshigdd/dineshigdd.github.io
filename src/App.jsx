@@ -15,7 +15,8 @@ import { lazy, Suspense , startTransition , useEffect, useState } from 'react'
 import { BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  Link,
+  HashRouter
 } from "react-router-dom";
 
 
@@ -52,6 +53,7 @@ function PortfolioContainer() {
   return (
     <Container fluid>
        <Router>
+       <HashRouter basename="/">
           <Row className='d-flex flex-column'>     
             <Col>
               <Navbar bg="light" expand="lg" fixed="top">
@@ -80,6 +82,7 @@ function PortfolioContainer() {
             </Col>
          
       </Row>
+      </HashRouter>
       </Router>     
     </Container>
   )
