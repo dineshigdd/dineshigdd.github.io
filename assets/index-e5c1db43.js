@@ -7678,7 +7678,7 @@ var m$1 = reactDomExports;
 }
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
-  return "/" + dep;
+  return "/dineshigdd.github.io/" + dep;
 };
 const seen = {};
 const __vitePreload = function preload(baseModule, deps, importerUrl) {
@@ -10431,7 +10431,7 @@ const Row = /* @__PURE__ */ reactExports.forwardRef(({
 });
 Row.displayName = "Row";
 const Row$1 = Row;
-const myImage = "/assets/self-475013df.jpg";
+const myImage = "/dineshigdd.github.io/assets/self-475013df.jpg";
 var reactIsExports = {};
 var reactIs$1 = {
   get exports() {
@@ -13099,7 +13099,7 @@ function useLinkClickHandler(to, _temp) {
     }
   }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
 }
-const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-310e5f0b.js"), true ? ["assets/Resume-310e5f0b.js","assets/Resume-d61b8e4b.css"] : void 0));
+const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-ad17a487.js"), true ? ["assets/Resume-ad17a487.js","assets/Resume-d61b8e4b.css"] : void 0));
 function PortfolioContainer() {
   const [state, setState] = reactExports.useState(null);
   reactExports.useEffect(() => {
