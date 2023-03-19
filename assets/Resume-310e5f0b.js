@@ -34,7 +34,7 @@ var __privateMethod = (obj, member, method) => {
   __accessCheck(obj, member, "access private method");
   return method;
 };
-import { g as getAugmentedNamespace, _ as _objectWithoutPropertiesLoose$1, a as _setPrototypeOf, r as reactExports, p as propTypesExports, R as React, b as _extends$1, j as jsxs, c as jsx, s as styled } from "./index-e5c1db43.js";
+import { g as getAugmentedNamespace, _ as _objectWithoutPropertiesLoose$1, a as _setPrototypeOf, r as reactExports, p as propTypesExports, R as React, b as _extends$1, j as jsxs, c as jsx, s as styled } from "./index-6ac6d95c.js";
 var top = "top";
 var bottom = "bottom";
 var right = "right";
@@ -1316,7 +1316,7 @@ function popperGenerator(generatorOptions) {
   };
 }
 var createPopper$2 = /* @__PURE__ */ popperGenerator();
-const resumePDF = "/dineshigdd.github.io/assets/Resume23-33fe3614.pdf";
+const resumePDF = "/assets/Resume23-33fe3614.pdf";
 function commonjsRequire(path) {
   throw new Error('Could not dynamically require "' + path + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
@@ -19713,7 +19713,7 @@ function Page(props, ref) {
 }
 const Page$1 = /* @__PURE__ */ React.forwardRef(Page);
 displayWorkerWarning();
-pdfExports.GlobalWorkerOptions.workerSrc = new URL("/dineshigdd.github.io/assets/pdf.worker-6b078827.js", self.location);
+pdfExports.GlobalWorkerOptions.workerSrc = new URL("/assets/pdf.worker-6b078827.js", self.location);
 const TextLayer = "";
 const AnnotationLayer = "";
 function applyStyles(_ref) {
