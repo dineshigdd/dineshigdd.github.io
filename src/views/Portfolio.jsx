@@ -4,11 +4,37 @@ import HomeContainer from '../styles/styles'
 import styled  from 'styled-components'
 import { Container, Image, Row, Col } from 'react-bootstrap'
 
+
+let projectArray = [];
+
+projectArray = [{
+  name: "yelp-project",
+  description:"This project is the clone of yelp",
+  tech:"React , Node , Yelp API",
+  img: myImage
+},
+{
+  name: "yelp-project",
+  description:"This project is the clone of yelp",
+  tech:"React , Node , Yelp API",
+  img:myImage
+},{
+  name: "yelp-project",
+  description:"This project is the clone of yelp",
+  tech:"React , Node , Yelp API",
+  img:myImage
+}];
+
+ 
+
+
+
 function Portfolio() {
   return (
     <HomeContainer className="w-50 col-sm-1 w-sm-100 p-3 d-flex mx-auto">   
      <GridContainer  className='grid d-flex flex-column'>
           <RowContainer className='p-2'>
+            
             <Col><Image  src={ myImage} 
                             fluid='true'                           
                             alt="my Image"
