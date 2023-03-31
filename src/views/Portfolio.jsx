@@ -5,59 +5,20 @@ import styled  from 'styled-components'
 import { Container, Image, Row, Col } from 'react-bootstrap'
 
 
-const GridContainer = styled( Container )`
-   height:50vh;  
-   max-width: 500vw;
-   background-color: aliceblue;
- 
- 
-  
-  /* div {
-    text-align: center;
-  }
-  */
-  /* @media (min-width: 768px) { 
-  
-    
-  } */
-  
-`;
-
-const RowContainer = styled( Row )`
-  @media (max-width: 575.98px) { 
-    display: block;
-  }
-  
-`;
-
-const ImageWrapper = styled( Image )`
-  margin-top:5px;
-  margin-bottom:15px;
-`;
-
-
-const ProjectDescription = styled.div`
-  min-height:10vh;
-  margin: 0 auto;
-`
-
-
-
-
 const projectArray = [{
   name: "yelp-project",
-  description:"This project is the clone of yelp",
+  description:"This project is the clone of yelp. A user can find a place based on the search term entered",
   tech:"React , Node , Yelp API",
   img: myImage
 },
 {
-  name: "yelp-project",
-  description:"This project is the clone of yelp",
-  tech:"React , Node , Yelp API",
+  name: "Issue Tracker",
+  description:"This apllication keep track of issues. This app demonstrate all CRUD functionality",
+  tech:"Pug, Node",
   img:myImage
 },{
-  name: "yelp-project",
-  description:"This project is the clone of yelp",
+  name: "Appointment syetem",
+  description:"Users can schedule appointments. The system send a notification to the phone",
   tech:"React , Node , Yelp API",
   img:myImage
 }];
@@ -72,7 +33,7 @@ function Portfolio() {
         { projectArray.map
             (project =>(
 
-                  <RowContainer className='p-2'>
+                  <RowContainer>
                   <Col><ImageWrapper  src={ project.img } 
                                   fluid='true'                           
                                   alt="my Image"
@@ -82,7 +43,8 @@ function Portfolio() {
                   <Col>
                   <ProjectDescription> 
                         <h5>{ project.name }</h5>
-                        <span>Technologies:{ project.description }</span>  
+                        <p>{ project.description} </p>
+                        <span>Technologies:{ project.tech }</span>  
                   </ProjectDescription>            
                   </Col>
                   </RowContainer>
@@ -103,3 +65,57 @@ function Portfolio() {
 
 
 export default Portfolio
+
+
+const GridContainer = styled( Container )`
+   height:50vh;  
+   max-width: 50vw;
+   
+   
+ 
+   @media (max-width: 575.98px) { 
+    /* margin-left: 20px;
+    margin-right: 50px; */
+    /* margin:auto 0; */
+    max-width: 90vw;
+      /* overflow-x:hidden; */
+    
+    }
+  
+  /* div {
+    text-align: center;
+  }
+  */
+ 
+  
+`;
+
+const RowContainer = styled( Row )`
+  
+  @media (max-width: 575.98px) { 
+    display: block;
+  }
+
+  &:hover {
+    background: rgb(240, 248, 255);
+    cursor:pointer;
+  }
+  
+`;
+
+const ImageWrapper = styled( Image )`
+  margin-top:5px;
+  margin-bottom:15px;
+`;
+
+
+const ProjectDescription = styled.div`
+  min-height:10vh;
+  margin: 0 auto;
+
+
+   @media (min-width: 768px) { 
+    text-align: left;
+    
+  }
+`

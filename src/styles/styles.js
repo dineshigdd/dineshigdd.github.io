@@ -14,9 +14,10 @@ const HomeContainer = styled.div`
     }
 
     @media (max-width: 575.98px) { 
-    min-width: 100vw;
+      min-width: 100vw;
+      
     
     
-  }
+    }
 `
 export default HomeContainer;
