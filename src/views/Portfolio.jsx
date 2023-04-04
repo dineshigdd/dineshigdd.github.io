@@ -17,7 +17,7 @@ const projectArray = [{
   tech:"Pug, Node",
   img:myImage
 },{
-  name: "Appointment syetem",
+  name: "Appointment system",
   description:"Users can schedule appointments. The system send a notification to the phone",
   tech:"React , Node , Yelp API",
   img:myImage
@@ -43,8 +43,8 @@ function Portfolio() {
                   <Col>
                   <ProjectDescription> 
                         <h5>{ project.name }</h5>
-                        <p>{ project.description} </p>
-                        <span>Technologies:{ project.tech }</span>  
+                        <p style={{ textAlign:'left'}}>{ project.description}</p>
+                        <p style={{ textAlign:'left'}}>Technologies:{ project.tech }</p>  
                   </ProjectDescription>            
                   </Col>
                   </RowContainer>
@@ -94,6 +94,8 @@ const RowContainer = styled( Row )`
   
   @media (max-width: 575.98px) { 
     display: block;
+    /* margin-top:15px; */
+    margin-bottom:20px;
   }
 
   &:hover {

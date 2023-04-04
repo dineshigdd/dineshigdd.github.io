@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const HomeContainer = styled.div`  
    
     place-items: center;
-    min-width: 100vw;
+    /* min-width: 100vw; */
     min-height: 92vh;
 
     .inner-container{
