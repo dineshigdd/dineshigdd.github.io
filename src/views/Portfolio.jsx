@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import myImage from '../assets/self.jpg'
+import yelpImage from '../assets/yelp.png'
 import HomeContainer from '../styles/styles'
 import styled  from 'styled-components'
 import { Container, Image, Row, Col } from 'react-bootstrap'
@@ -9,7 +10,7 @@ const projectArray = [{
   name: "yelp-project",
   description:"This project is the clone of yelp. A user can find a place based on the search term entered",
   tech:"React , Node , Yelp API",
-  img: myImage
+  img: yelpImage
 },
 {
   name: "Issue Tracker",
@@ -70,7 +71,7 @@ export default Portfolio
 const GridContainer = styled( Container )`
    height:50vh;  
    max-width: 50vw;
-   
+   overflow-y: auto;
    
  
    @media (max-width: 575.98px) { 
@@ -78,6 +79,7 @@ const GridContainer = styled( Container )`
     margin-right: 50px; */
     /* margin:auto 0; */
     max-width: 90vw;
+    overflow-y:inherit;
       /* overflow-x:hidden; */
     
     }
