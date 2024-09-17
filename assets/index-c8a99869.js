@@ -7933,7 +7933,7 @@ function style(node, property) {
   node.style.cssText += ";" + css;
 }
 var propTypesExports = {};
-var propTypes$1 = {
+var propTypes$3 = {
   get exports() {
     return propTypesExports;
   },
@@ -7991,7 +7991,7 @@ var factoryWithThrowingShims = function() {
   return ReactPropTypes;
 };
 {
-  propTypes$1.exports = factoryWithThrowingShims();
+  propTypes$3.exports = factoryWithThrowingShims();
 }
 const config = {
   disabled: false
@@ -8471,7 +8471,7 @@ const collapseStyles = {
   [ENTERING]: "collapsing",
   [ENTERED]: "collapse show"
 };
-const defaultProps$c = {
+const defaultProps$e = {
   in: false,
   timeout: 300,
   mountOnEnter: false,
@@ -8526,7 +8526,7 @@ const Collapse = /* @__PURE__ */ React.forwardRef(({
     })
   });
 });
-Collapse.defaultProps = defaultProps$c;
+Collapse.defaultProps = defaultProps$e;
 const Collapse$1 = Collapse;
 function useCommittedRef(value) {
   var ref = reactExports.useRef(value);
@@ -8647,7 +8647,7 @@ function useButtonProps({
     onKeyDown: handleKeyDown
   }, meta];
 }
-const Button = /* @__PURE__ */ reactExports.forwardRef((_ref, ref) => {
+const Button$2 = /* @__PURE__ */ reactExports.forwardRef((_ref, ref) => {
   let {
     as: asProp,
     disabled
@@ -8662,7 +8662,7 @@ const Button = /* @__PURE__ */ reactExports.forwardRef((_ref, ref) => {
     ref
   }));
 });
-Button.displayName = "Button";
+Button$2.displayName = "Button";
 const _excluded$4 = ["onKeyDown"];
 function _objectWithoutPropertiesLoose$4(source, excluded) {
   if (source == null)
@@ -8707,7 +8707,7 @@ const Anchor = /* @__PURE__ */ reactExports.forwardRef((_ref, ref) => {
 });
 Anchor.displayName = "Anchor";
 const Anchor$1 = Anchor;
-const defaultProps$b = {
+const defaultProps$d = {
   in: false,
   timeout: 300,
   mountOnEnter: false,
@@ -8740,10 +8740,10 @@ const Fade = /* @__PURE__ */ reactExports.forwardRef(({
     })
   });
 });
-Fade.defaultProps = defaultProps$b;
+Fade.defaultProps = defaultProps$d;
 Fade.displayName = "Fade";
 const Fade$1 = Fade;
-const propTypes = {
+const propTypes$2 = {
   /** An accessible label indicating the relevant information about the Close Button. */
   "aria-label": propTypesExports.string,
   /** A callback fired after the Close Button is clicked. */
@@ -8755,7 +8755,7 @@ const propTypes = {
    */
   variant: propTypesExports.oneOf(["white"])
 };
-const defaultProps$a = {
+const defaultProps$c = {
   "aria-label": "Close"
 };
 const CloseButton = /* @__PURE__ */ reactExports.forwardRef(({
@@ -8769,8 +8769,8 @@ const CloseButton = /* @__PURE__ */ reactExports.forwardRef(({
   ...props
 }));
 CloseButton.displayName = "CloseButton";
-CloseButton.propTypes = propTypes;
-CloseButton.defaultProps = defaultProps$a;
+CloseButton.propTypes = propTypes$2;
+CloseButton.defaultProps = defaultProps$c;
 const CloseButton$1 = CloseButton;
 const divWithClassName = (className) => /* @__PURE__ */ reactExports.forwardRef((p2, ref) => /* @__PURE__ */ jsx("div", {
   ...p2,
@@ -8806,6 +8806,38 @@ function createWithBsPrefix(prefix, {
   BsComponent.displayName = displayName;
   return BsComponent;
 }
+const defaultProps$b = {
+  variant: "primary",
+  active: false,
+  disabled: false
+};
+const Button = /* @__PURE__ */ reactExports.forwardRef(({
+  as,
+  bsPrefix,
+  variant,
+  size,
+  active,
+  className,
+  ...props
+}, ref) => {
+  const prefix = useBootstrapPrefix(bsPrefix, "btn");
+  const [buttonProps, {
+    tagName
+  }] = useButtonProps({
+    tagName: as,
+    ...props
+  });
+  const Component = tagName;
+  return /* @__PURE__ */ jsx(Component, {
+    ...buttonProps,
+    ...props,
+    ref,
+    className: classNames(className, prefix, active && "active", variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && props.disabled && "disabled")
+  });
+});
+Button.displayName = "Button";
+Button.defaultProps = defaultProps$b;
+const Button$1 = Button;
 const context$1 = /* @__PURE__ */ reactExports.createContext(null);
 context$1.displayName = "CardHeaderContext";
 const CardHeaderContext = context$1;
@@ -8821,6 +8853,9 @@ function useWillUnmount(fn) {
       return onUnmount.current();
     };
   }, []);
+}
+function hasChildOfType(children, type) {
+  return reactExports.Children.toArray(children).some((child) => /* @__PURE__ */ reactExports.isValidElement(child) && child.type === type);
 }
 function useCol({
   as,
@@ -8927,6 +8962,388 @@ function useWindow() {
 const context = /* @__PURE__ */ reactExports.createContext(null);
 context.displayName = "NavbarContext";
 const NavbarContext = context;
+const propTypes$1 = {
+  /**
+   * Specify whether the feedback is for valid or invalid fields
+   *
+   * @type {('valid'|'invalid')}
+   */
+  type: propTypesExports.string,
+  /** Display feedback as a tooltip. */
+  tooltip: propTypesExports.bool,
+  as: propTypesExports.elementType
+};
+const Feedback = /* @__PURE__ */ reactExports.forwardRef(
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  ({
+    as: Component = "div",
+    className,
+    type = "valid",
+    tooltip = false,
+    ...props
+  }, ref) => /* @__PURE__ */ jsx(Component, {
+    ...props,
+    ref,
+    className: classNames(className, `${type}-${tooltip ? "tooltip" : "feedback"}`)
+  })
+);
+Feedback.displayName = "Feedback";
+Feedback.propTypes = propTypes$1;
+const Feedback$1 = Feedback;
+const FormContext = /* @__PURE__ */ reactExports.createContext({});
+const FormContext$1 = FormContext;
+const FormCheckInput = /* @__PURE__ */ reactExports.forwardRef(({
+  id: id2,
+  bsPrefix,
+  className,
+  type = "checkbox",
+  isValid = false,
+  isInvalid = false,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = "input",
+  ...props
+}, ref) => {
+  const {
+    controlId
+  } = reactExports.useContext(FormContext$1);
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-check-input");
+  return /* @__PURE__ */ jsx(Component, {
+    ...props,
+    ref,
+    type,
+    id: id2 || controlId,
+    className: classNames(className, bsPrefix, isValid && "is-valid", isInvalid && "is-invalid")
+  });
+});
+FormCheckInput.displayName = "FormCheckInput";
+const FormCheckInput$1 = FormCheckInput;
+const FormCheckLabel = /* @__PURE__ */ reactExports.forwardRef(({
+  bsPrefix,
+  className,
+  htmlFor,
+  ...props
+}, ref) => {
+  const {
+    controlId
+  } = reactExports.useContext(FormContext$1);
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-check-label");
+  return /* @__PURE__ */ jsx("label", {
+    ...props,
+    ref,
+    htmlFor: htmlFor || controlId,
+    className: classNames(className, bsPrefix)
+  });
+});
+FormCheckLabel.displayName = "FormCheckLabel";
+const FormCheckLabel$1 = FormCheckLabel;
+const FormCheck = /* @__PURE__ */ reactExports.forwardRef(({
+  id: id2,
+  bsPrefix,
+  bsSwitchPrefix,
+  inline = false,
+  reverse = false,
+  disabled = false,
+  isValid = false,
+  isInvalid = false,
+  feedbackTooltip = false,
+  feedback,
+  feedbackType,
+  className,
+  style: style2,
+  title = "",
+  type = "checkbox",
+  label,
+  children,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as = "input",
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-check");
+  bsSwitchPrefix = useBootstrapPrefix(bsSwitchPrefix, "form-switch");
+  const {
+    controlId
+  } = reactExports.useContext(FormContext$1);
+  const innerFormContext = reactExports.useMemo(() => ({
+    controlId: id2 || controlId
+  }), [controlId, id2]);
+  const hasLabel = !children && label != null && label !== false || hasChildOfType(children, FormCheckLabel$1);
+  const input = /* @__PURE__ */ jsx(FormCheckInput$1, {
+    ...props,
+    type: type === "switch" ? "checkbox" : type,
+    ref,
+    isValid,
+    isInvalid,
+    disabled,
+    as
+  });
+  return /* @__PURE__ */ jsx(FormContext$1.Provider, {
+    value: innerFormContext,
+    children: /* @__PURE__ */ jsx("div", {
+      style: style2,
+      className: classNames(className, hasLabel && bsPrefix, inline && `${bsPrefix}-inline`, reverse && `${bsPrefix}-reverse`, type === "switch" && bsSwitchPrefix),
+      children: children || /* @__PURE__ */ jsxs(Fragment, {
+        children: [input, hasLabel && /* @__PURE__ */ jsx(FormCheckLabel$1, {
+          title,
+          children: label
+        }), feedback && /* @__PURE__ */ jsx(Feedback$1, {
+          type: feedbackType,
+          tooltip: feedbackTooltip,
+          children: feedback
+        })]
+      })
+    })
+  });
+});
+FormCheck.displayName = "FormCheck";
+const FormCheck$1 = Object.assign(FormCheck, {
+  Input: FormCheckInput$1,
+  Label: FormCheckLabel$1
+});
+const FormControl = /* @__PURE__ */ reactExports.forwardRef(({
+  bsPrefix,
+  type,
+  size,
+  htmlSize,
+  id: id2,
+  className,
+  isValid = false,
+  isInvalid = false,
+  plaintext,
+  readOnly,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = "input",
+  ...props
+}, ref) => {
+  const {
+    controlId
+  } = reactExports.useContext(FormContext$1);
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-control");
+  let classes;
+  if (plaintext) {
+    classes = {
+      [`${bsPrefix}-plaintext`]: true
+    };
+  } else {
+    classes = {
+      [bsPrefix]: true,
+      [`${bsPrefix}-${size}`]: size
+    };
+  }
+  return /* @__PURE__ */ jsx(Component, {
+    ...props,
+    type,
+    size: htmlSize,
+    ref,
+    readOnly,
+    id: id2 || controlId,
+    className: classNames(className, classes, isValid && `is-valid`, isInvalid && `is-invalid`, type === "color" && `${bsPrefix}-color`)
+  });
+});
+FormControl.displayName = "FormControl";
+const FormControl$1 = Object.assign(FormControl, {
+  Feedback: Feedback$1
+});
+const FormFloating = createWithBsPrefix("form-floating");
+const FormGroup = /* @__PURE__ */ reactExports.forwardRef(({
+  controlId,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = "div",
+  ...props
+}, ref) => {
+  const context2 = reactExports.useMemo(() => ({
+    controlId
+  }), [controlId]);
+  return /* @__PURE__ */ jsx(FormContext$1.Provider, {
+    value: context2,
+    children: /* @__PURE__ */ jsx(Component, {
+      ...props,
+      ref
+    })
+  });
+});
+FormGroup.displayName = "FormGroup";
+const FormGroup$1 = FormGroup;
+const defaultProps$a = {
+  column: false,
+  visuallyHidden: false
+};
+const FormLabel = /* @__PURE__ */ reactExports.forwardRef(({
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = "label",
+  bsPrefix,
+  column,
+  visuallyHidden,
+  className,
+  htmlFor,
+  ...props
+}, ref) => {
+  const {
+    controlId
+  } = reactExports.useContext(FormContext$1);
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-label");
+  let columnClass = "col-form-label";
+  if (typeof column === "string")
+    columnClass = `${columnClass} ${columnClass}-${column}`;
+  const classes = classNames(className, bsPrefix, visuallyHidden && "visually-hidden", column && columnClass);
+  htmlFor = htmlFor || controlId;
+  if (column)
+    return /* @__PURE__ */ jsx(Col$1, {
+      ref,
+      as: "label",
+      className: classes,
+      htmlFor,
+      ...props
+    });
+  return (
+    // eslint-disable-next-line jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control
+    /* @__PURE__ */ jsx(Component, {
+      ref,
+      className: classes,
+      htmlFor,
+      ...props
+    })
+  );
+});
+FormLabel.displayName = "FormLabel";
+FormLabel.defaultProps = defaultProps$a;
+const FormLabel$1 = FormLabel;
+const FormRange = /* @__PURE__ */ reactExports.forwardRef(({
+  bsPrefix,
+  className,
+  id: id2,
+  ...props
+}, ref) => {
+  const {
+    controlId
+  } = reactExports.useContext(FormContext$1);
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-range");
+  return /* @__PURE__ */ jsx("input", {
+    ...props,
+    type: "range",
+    ref,
+    className: classNames(className, bsPrefix),
+    id: id2 || controlId
+  });
+});
+FormRange.displayName = "FormRange";
+const FormRange$1 = FormRange;
+const FormSelect = /* @__PURE__ */ reactExports.forwardRef(({
+  bsPrefix,
+  size,
+  htmlSize,
+  className,
+  isValid = false,
+  isInvalid = false,
+  id: id2,
+  ...props
+}, ref) => {
+  const {
+    controlId
+  } = reactExports.useContext(FormContext$1);
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-select");
+  return /* @__PURE__ */ jsx("select", {
+    ...props,
+    size: htmlSize,
+    ref,
+    className: classNames(className, bsPrefix, size && `${bsPrefix}-${size}`, isValid && `is-valid`, isInvalid && `is-invalid`),
+    id: id2 || controlId
+  });
+});
+FormSelect.displayName = "FormSelect";
+const FormSelect$1 = FormSelect;
+const FormText = /* @__PURE__ */ reactExports.forwardRef(
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  ({
+    bsPrefix,
+    className,
+    as: Component = "small",
+    muted,
+    ...props
+  }, ref) => {
+    bsPrefix = useBootstrapPrefix(bsPrefix, "form-text");
+    return /* @__PURE__ */ jsx(Component, {
+      ...props,
+      ref,
+      className: classNames(className, bsPrefix, muted && "text-muted")
+    });
+  }
+);
+FormText.displayName = "FormText";
+const FormText$1 = FormText;
+const Switch = /* @__PURE__ */ reactExports.forwardRef((props, ref) => /* @__PURE__ */ jsx(FormCheck$1, {
+  ...props,
+  ref,
+  type: "switch"
+}));
+Switch.displayName = "Switch";
+const Switch$1 = Object.assign(Switch, {
+  Input: FormCheck$1.Input,
+  Label: FormCheck$1.Label
+});
+const FloatingLabel = /* @__PURE__ */ reactExports.forwardRef(({
+  bsPrefix,
+  className,
+  children,
+  controlId,
+  label,
+  ...props
+}, ref) => {
+  bsPrefix = useBootstrapPrefix(bsPrefix, "form-floating");
+  return /* @__PURE__ */ jsxs(FormGroup$1, {
+    ref,
+    className: classNames(className, bsPrefix),
+    controlId,
+    ...props,
+    children: [children, /* @__PURE__ */ jsx("label", {
+      htmlFor: controlId,
+      children: label
+    })]
+  });
+});
+FloatingLabel.displayName = "FloatingLabel";
+const FloatingLabel$1 = FloatingLabel;
+const propTypes = {
+  /**
+   * The Form `ref` will be forwarded to the underlying element,
+   * which means, unless it's rendered `as` a composite component,
+   * it will be a DOM node, when resolved.
+   *
+   * @type {ReactRef}
+   * @alias ref
+   */
+  _ref: propTypesExports.any,
+  /**
+   * Mark a form as having been validated. Setting it to `true` will
+   * toggle any validation styles on the forms elements.
+   */
+  validated: propTypesExports.bool,
+  as: propTypesExports.elementType
+};
+const Form = /* @__PURE__ */ reactExports.forwardRef(({
+  className,
+  validated,
+  // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+  as: Component = "form",
+  ...props
+}, ref) => /* @__PURE__ */ jsx(Component, {
+  ...props,
+  ref,
+  className: classNames(className, validated && "was-validated")
+}));
+Form.displayName = "Form";
+Form.propTypes = propTypes;
+const Form$1 = Object.assign(Form, {
+  Group: FormGroup$1,
+  Control: FormControl$1,
+  Floating: FormFloating,
+  Check: FormCheck$1,
+  Switch: Switch$1,
+  Label: FormLabel$1,
+  Text: FormText$1,
+  Range: FormRange$1,
+  Select: FormSelect$1,
+  FloatingLabel: FloatingLabel$1
+});
 const defaultProps$9 = {
   fluid: false
 };
@@ -9067,7 +9484,7 @@ function useNavItem({
 }
 const NavItem$1 = /* @__PURE__ */ reactExports.forwardRef((_ref, ref) => {
   let {
-    as: Component = Button,
+    as: Component = Button$2,
     active,
     eventKey
   } = _ref, options = _objectWithoutPropertiesLoose$3(_ref, _excluded$3);
@@ -11673,7 +12090,7 @@ const styled = He;
 const HomeContainer = styled.div`  
    
     place-items: center;
-    min-width: 320px;
+    /* min-width: 100vw; */
     min-height: 92vh;
 
     .inner-container{
@@ -11681,10 +12098,17 @@ const HomeContainer = styled.div`
         flex-direction: column;
         place-items: inherit;
     }
+
+    @media (max-width: 575.98px) { 
+      min-width: 100vw;
+      
+    
+    
+    }
 `;
 function Home() {
   return /* @__PURE__ */ jsx(HomeContainer, { className: "w-50 p-3 d-flex mx-auto", children: /* @__PURE__ */ jsxs("div", { className: "inner-container d-flex", children: [
-    /* @__PURE__ */ jsx(ImageContainer, { className: "w-50 p-3", children: /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsx(ImageContainer$1, { className: "w-50 p-3", children: /* @__PURE__ */ jsx(
       Image$1,
       {
         src: myImage,
@@ -11700,7 +12124,7 @@ function Home() {
     ] }) })
   ] }) });
 }
-const ImageContainer = styled.div`
+const ImageContainer$1 = styled.div`
     @media (min-width: 576px ){
         img{
             width: 50%;
@@ -11709,11 +12133,51 @@ const ImageContainer = styled.div`
     }
 `;
 function About() {
-  return /* @__PURE__ */ jsx(HomeContainer, { className: "w-50 p-3 d-flex mx-auto", children: /* @__PURE__ */ jsx("div", { className: "inner-container d-flex", children: /* @__PURE__ */ jsx("p", { children: "I am a full-stack web developer in service for any clients in need of websites and web applications. I put in a genuine effort to understand the requirements of the client. I have a client-oriented approach when it comes to web development. With my passion for web development and programming, I am fully committed to supporting you reach your business goals in a modern competitive market." }) }) });
+  return /* @__PURE__ */ jsx(HomeContainer, { className: "w-50 p-3 d-flex mx-auto", children: /* @__PURE__ */ jsxs("div", { className: "inner-container d-flex flex-row", children: [
+    /* @__PURE__ */ jsx(ImageContainer, { className: "w-50 p-3", children: /* @__PURE__ */ jsx(
+      Image$1,
+      {
+        src: myImage,
+        fluid: "true",
+        roundedCircle: "true",
+        alt: "my Image"
+      }
+    ) }),
+    /* @__PURE__ */ jsx("p", { children: "Passionate web developer with a creative flair, dedicated to crafting seamless and visually stunning online experiences. I thrive on translating ideas into functional, user-friendly websites that exceed expectations. My mission is to harness the power of technology to enrich lives and empower businesses to thrive in the digital world." })
+  ] }) });
 }
+const ImageContainer = styled.div`
+    @media (min-width: 576px ){
+        img{
+            width: 50%;
+            height: auto;
+        }
+    }
+`;
+const handleSubmit = () => {
+};
 function Contact() {
-  return /* @__PURE__ */ jsx(HomeContainer, { className: "w-50 p-3 d-flex mx-auto", children: /* @__PURE__ */ jsx("div", { className: "inner-container d-flex", children: "Contact" }) });
+  return /* @__PURE__ */ jsx(HomeContainer, { className: "w-50 d-flex justify-content-center mx-auto", children: /* @__PURE__ */ jsx("div", { className: "inner-container d-flex", children: /* @__PURE__ */ jsxs(FormContainer, { onSubmit: handleSubmit, children: [
+    /* @__PURE__ */ jsxs(Form$1.Group, { className: "mb-3", controlId: "exampleForm.ControlInput1", children: [
+      /* @__PURE__ */ jsx(Form$1.Label, { children: "Email Address" }),
+      /* @__PURE__ */ jsx(Form$1.Control, { type: "email", placeholder: "name@example.com" })
+    ] }),
+    /* @__PURE__ */ jsxs(Form$1.Group, { className: "mb-3", controlId: "exampleForm.ControlTextarea1", children: [
+      /* @__PURE__ */ jsx(Form$1.Label, { children: "Message" }),
+      /* @__PURE__ */ jsx(Form$1.Control, { as: "textarea", rows: 4 })
+    ] }),
+    /* @__PURE__ */ jsx(Button$1, { variant: "primary", type: "submit", children: "Submit" })
+  ] }) }) });
 }
+const FormContainer = styled(Form$1)`
+  width:300px;
+  text-align:right;
+
+  .mb-3{
+    text-align: left;
+  }
+ 
+`;
 const ResumeMobile = () => /* @__PURE__ */ jsxs(MobileResumeContainer, { children: [
   /* @__PURE__ */ jsx(ResumeHeader, { children: /* @__PURE__ */ jsxs(Col$1, { children: [
     /* @__PURE__ */ jsx("p", { children: "Daminda Dinesh Imaduwa Gamage" }),
@@ -11850,9 +12314,101 @@ const Section = styled(Col$1)`
       }
   }
 `;
+const yelpImage = "/assets/yelp-55c5cc52.png";
+const projectArray = [
+  {
+    name: "yelp-project",
+    description: "This project is the clone of yelp. A user can find a place based on the search term entered",
+    tech: "React , Node , Yelp API",
+    img: yelpImage
+  },
+  {
+    name: "Issue Tracker",
+    description: "This apllication keep track of issues. This app demonstrate all CRUD functionality",
+    tech: "Pug, Node",
+    img: myImage
+  },
+  {
+    name: "Appointment system",
+    description: "Users can schedule appointments. The system send a notification to the phone",
+    tech: "React , Node , Yelp API",
+    img: myImage
+  }
+];
 function Portfolio() {
-  return /* @__PURE__ */ jsx(HomeContainer, { className: "w-50 p-3 d-flex mx-auto", children: /* @__PURE__ */ jsx("div", { className: "inner-container d-flex", children: "Portfolio" }) });
+  return /* @__PURE__ */ jsx(HomeContainer, { className: "w-50 col-sm-1 w-sm-100 p-3 d-flex mx-auto", children: /* @__PURE__ */ jsx(GridContainer, { className: "grid d-flex flex-column", children: projectArray.map(
+    (project) => /* @__PURE__ */ jsxs(RowContainer, { children: [
+      /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsx(
+        ImageWrapper,
+        {
+          src: project.img,
+          fluid: "true",
+          alt: "my Image",
+          width: 150
+        }
+      ) }),
+      /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsxs(ProjectDescription, { children: [
+        /* @__PURE__ */ jsx("h5", { children: project.name }),
+        /* @__PURE__ */ jsx("p", { style: { textAlign: "left" }, children: project.description }),
+        /* @__PURE__ */ jsxs("p", { style: { textAlign: "left" }, children: [
+          "Technologies:",
+          project.tech
+        ] })
+      ] }) })
+    ] })
+  ) }) });
 }
+const GridContainer = styled(Container$1)`
+   height:50vh;  
+   max-width: 50vw;
+   overflow-y: auto;
+   
+ 
+   @media (max-width: 575.98px) { 
+    /* margin-left: 20px;
+    margin-right: 50px; */
+    /* margin:auto 0; */
+    max-width: 90vw;
+    overflow-y:inherit;
+      /* overflow-x:hidden; */
+    
+    }
+  
+  /* div {
+    text-align: center;
+  }
+  */
+ 
+  
+`;
+const RowContainer = styled(Row$1)`
+  
+  @media (max-width: 575.98px) { 
+    display: block;
+    /* margin-top:15px; */
+    margin-bottom:20px;
+  }
+
+  &:hover {
+    background: rgb(240, 248, 255);
+    cursor:pointer;
+  }
+  
+`;
+const ImageWrapper = styled(Image$1)`
+  margin-top:5px;
+  margin-bottom:15px;
+`;
+const ProjectDescription = styled.div`
+  min-height:10vh;
+  margin: 0 auto;
+
+
+   @media (min-width: 768px) { 
+    text-align: left;
+    
+  }
+`;
 /**
  * @remix-run/router v1.3.2
  *
@@ -11884,16 +12440,16 @@ var Action;
   Action2["Replace"] = "REPLACE";
 })(Action || (Action = {}));
 const PopStateEventType = "popstate";
-function createHashHistory(options) {
+function createBrowserHistory(options) {
   if (options === void 0) {
     options = {};
   }
-  function createHashLocation(window2, globalHistory) {
+  function createBrowserLocation(window2, globalHistory) {
     let {
-      pathname = "/",
-      search = "",
-      hash = ""
-    } = parsePath(window2.location.hash.substr(1));
+      pathname,
+      search,
+      hash
+    } = window2.location;
     return createLocation(
       "",
       {
@@ -11906,34 +12462,14 @@ function createHashHistory(options) {
       globalHistory.state && globalHistory.state.key || "default"
     );
   }
-  function createHashHref(window2, to) {
-    let base = window2.document.querySelector("base");
-    let href = "";
-    if (base && base.getAttribute("href")) {
-      let url = window2.location.href;
-      let hashIndex = url.indexOf("#");
-      href = hashIndex === -1 ? url : url.slice(0, hashIndex);
-    }
-    return href + "#" + (typeof to === "string" ? to : createPath(to));
+  function createBrowserHref(window2, to) {
+    return typeof to === "string" ? to : createPath(to);
   }
-  function validateHashLocation(location, to) {
-    warning$1(location.pathname.charAt(0) === "/", "relative pathnames are not supported in hash history.push(" + JSON.stringify(to) + ")");
-  }
-  return getUrlBasedHistory(createHashLocation, createHashHref, validateHashLocation, options);
+  return getUrlBasedHistory(createBrowserLocation, createBrowserHref, null, options);
 }
 function invariant(value, message) {
   if (value === false || value === null || typeof value === "undefined") {
     throw new Error(message);
-  }
-}
-function warning$1(cond, message) {
-  if (!cond) {
-    if (typeof console !== "undefined")
-      console.warn(message);
-    try {
-      throw new Error(message);
-    } catch (e2) {
-    }
   }
 }
 function createKey() {
@@ -13004,15 +13540,15 @@ function shouldProcessLinkClick(event, target) {
   !isModifiedEvent(event);
 }
 const _excluded = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset"];
-function HashRouter(_ref2) {
+function BrowserRouter(_ref) {
   let {
     basename,
     children,
     window: window2
-  } = _ref2;
+  } = _ref;
   let historyRef = reactExports.useRef();
   if (historyRef.current == null) {
-    historyRef.current = createHashHistory({
+    historyRef.current = createBrowserHistory({
       window: window2,
       v5Compat: true
     });
@@ -13119,7 +13655,7 @@ function useLinkClickHandler(to, _temp) {
     }
   }, [location, navigate, path, replaceProp, state, target, to, preventScrollReset, relative]);
 }
-const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-ea5ada50.js"), true ? ["assets/Resume-ea5ada50.js","assets/Resume-d61b8e4b.css"] : void 0));
+const Resume = reactExports.lazy(() => __vitePreload(() => import("./Resume-33b9b82d.js"), true ? ["assets/Resume-33b9b82d.js","assets/Resume-d61b8e4b.css"] : void 0));
 function PortfolioContainer() {
   const [state, setState] = reactExports.useState(null);
   reactExports.useEffect(() => {
@@ -13138,7 +13674,7 @@ function PortfolioContainer() {
       }
     }, [window.innerWidth]);
   });
-  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(HashRouter, { children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
+  return /* @__PURE__ */ jsx(Container$1, { fluid: true, children: /* @__PURE__ */ jsx(BrowserRouter, { children: /* @__PURE__ */ jsxs(Row$1, { className: "d-flex flex-column", children: [
     /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsx(Navbar$1, { bg: "light", expand: "lg", fixed: "top", children: /* @__PURE__ */ jsxs(Container$1, { children: [
       /* @__PURE__ */ jsx(Navbar$1.Brand, { children: /* @__PURE__ */ jsx(Link, { to: "/", children: "Dinesh" }) }),
       /* @__PURE__ */ jsx(Navbar$1.Toggle, { "aria-controls": "basic-navbar-nav" }),
@@ -13149,7 +13685,7 @@ function PortfolioContainer() {
         /* @__PURE__ */ jsx(MainNavLink, { to: "Contact", children: "Contact" })
       ] }) })
     ] }) }) }),
-    /* @__PURE__ */ jsx(Col$1, { children: /* @__PURE__ */ jsxs(Routes, { children: [
+    /* @__PURE__ */ jsx(Col$1, { style: { padding: 0 }, children: /* @__PURE__ */ jsxs(Routes, { children: [
       /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "about", element: /* @__PURE__ */ jsx(About, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "portfolio", element: /* @__PURE__ */ jsx(Portfolio, {}) }),
