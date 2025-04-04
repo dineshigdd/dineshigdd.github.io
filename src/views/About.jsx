@@ -3,6 +3,8 @@ import myImage from '../assets/self.jpg'
 import { Image  } from 'react-bootstrap'
 import HomeContainer from '../styles/styles'
 import styled from 'styled-components'
+import Skills from '../components/skills'
+
 
 function About() {
   return (
@@ -17,10 +19,8 @@ function About() {
           
               </p>
               <h2>Skills</h2>
-              <div>
-              <div class=" mt-3 p-2 col"><svg className="#E34F26">  </svg></div>
-              </div>
-    </div>
+              <Skills />
+      </div>
 </HomeContainer>
   )
 }
