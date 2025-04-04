@@ -22,7 +22,11 @@ function Home() {
                         <div>
                             <p>
                                 Hi...I am Dinesh<br/>
-                                <span>Web Developer + Technical blogger</span>
+                                <span>Full-Stack Web Developer</span>
+                                <p>A dedicated developer with a strong foundation in modern web technologies. 
+                                    <br />I focus on writing clean, efficient code and continuously improving my skills.
+                                    <br />Always ready to tackle new challenges and build impactful solution
+                                </p>
                             </p>
                         </div>
                 </div>
