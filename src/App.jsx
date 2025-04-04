@@ -69,7 +69,7 @@ function PortfolioContainer() {
                   </Container>
               </Navbar>
             </Col>
-            <Col style={ { padding:0 }}>
+            <Col  style={ { padding:0 }}>
                 <Routes>
                     <Route path="/" element={  <Home /> } />     
                     <Route path="about" element={ <About />} />   
