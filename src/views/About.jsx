@@ -8,8 +8,9 @@ import Skills from '../components/skills'
 
 function About() {
   return (
-    <HomeContainer className="w-50 p-3 mx-auto">
-        <div className='inner-container mt-5'>
+    <HomeContainer className="w-50 p-3 d-flex mx-auto">
+        <div className='inner-container pt-5'>
+          
              <h2>About Me</h2>
               <p className='lh-lg fs-5 description  w-sm-50'>
               I hold a degree in Software Development from WGU and have a deep interest in web development, programming, and IT. 
@@ -18,7 +19,7 @@ function About() {
               I focus on writing clean, efficient code and staying up to date with industry trends to build innovative solutions.
           
               </p>
-              <h2>Skills</h2>
+              <h2 className='py-3'>Skills</h2>
               <Skills />
       </div>
 </HomeContainer>

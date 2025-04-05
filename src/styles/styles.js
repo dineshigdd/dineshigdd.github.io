@@ -19,14 +19,13 @@ const HomeContainer = styled.div`
        text-align: justify;
     }
 
-    @media (max-width: 575.98px) { 
+    @media (max-width: 575.98px) { //https://getbootstrap.com/docs/5.3/layout/breakpoints/
       min-width: 100vw;        
 
 
       .description{
         text-align: center;
-       
-      }
+       }
     
     }
     

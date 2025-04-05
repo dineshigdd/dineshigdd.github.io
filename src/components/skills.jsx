@@ -3,6 +3,7 @@ import {
   siNextdotjs, siBootstrap, siTailwindcss, 
   siAmazonwebservices
 } from "simple-icons";
+import styled from 'styled-components'
 
 const skills = [
   { name: "React", icon: siReact },
@@ -17,9 +18,8 @@ const skills = [
 ];
 
 const Skills = () => {
-  return (
-    <div style={{ textAlign: "center" }}>     
-      <div style={{ display: "flex", gap:"40px", flexWrap: "wrap", justifyContent: "center", width:"900px"}}>
+  return (             
+      <SkilContainer>  
         {skills.map((skill) => (
           <div key={skill.name} style={{ 
             flex: "1 1 30%",  // Ensures 3 items per row (100% / 3 ≈ 30%)
@@ -31,9 +31,22 @@ const Skills = () => {
             <p style={{ fontSize: "14px" }}>{skill.name}</p>
           </div>
         ))}
-      </div>
-    </div>
+      </SkilContainer>  
   );
 };
 
 export default Skills;
+
+const SkilContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* row-gap: 20px; */
+    max-width: 900px;
+
+
+    @media (min-width: 576px) {
+      gap: 40px;
+      width: 900px;
+    }
+`
