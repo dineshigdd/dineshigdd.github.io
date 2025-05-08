@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react';
 // import { Document, Page , pdfjs } from 'react-pdf';
-import resumePDF from "./Resume23.pdf"
+import resumePDF from "./Resume25.pdf"
 // import HomeContainer from '../styles/styles';
 import styled from 'styled-components'
 // pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
