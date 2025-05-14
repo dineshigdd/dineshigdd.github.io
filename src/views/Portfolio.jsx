@@ -24,7 +24,7 @@ const projectArray = [{
 },
 {
   name: "City Finder",
-  description:"This applcation",
+  description:"This applcation a demo app to find the cities of the world map",
   tech:"MERN",
   url:"https://osm-react-typescript-demo.netlify.app/",
   img:cityFinder  
