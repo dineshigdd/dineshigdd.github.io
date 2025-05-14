@@ -17,7 +17,7 @@ const projectArray = [{
 },
 {
   name: "mini Inventory control system",
-  description:"This applcation",
+  description:"This applcation is a mini-version of inventory control system",
   tech:"MERN",
   url:"https://mini-inventory-git-dev-dineshigdds-projects.vercel.app/",
   img:miniInventory
