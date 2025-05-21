@@ -8,15 +8,17 @@ import emailjs from '@emailjs/browser'
 
 
 function Contact() {
-    const form = useRef();
+    const formRef = useRef();
 
       const handleSubmit =  () =>{
         e.preventDefault();
 
-          emailjs
-            .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-              publicKey: 'PvA7-bhOjUMwHZK6b',
-            })
+         emailjs.sendForm(
+              import.meta.env.EMAILJS_SERVICE_ID,
+              import.meta.env.EMAILJS_TEMPLATE_ID,
+              formRef.current,
+              import.meta.env.EMAILJS_PUBLIC_KEY
+            ) 
             .then(
               () => {
                 console.log('SUCCESS!');
@@ -32,7 +34,7 @@ function Contact() {
     <HomeContainer className="w-50 d-flex justify-content-center mx-auto">
     <div className='inner-container d-flex'>
        
-          <FormContainer ref={form} onSubmit={ handleSubmit }>
+          <FormContainer ref={ formRef } onSubmit={ handleSubmit }>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label >Email Address</Form.Label>
                   <Form.Control type="email" placeholder="name@example.com" />
