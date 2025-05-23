@@ -14,17 +14,17 @@ function Contact() {
          e.preventDefault();
         
          emailjs.sendForm(
-              import.meta.env.EMAILJS_SERVICE_ID,
-              import.meta.env.EMAILJS_TEMPLATE_ID,
+              import.meta.env.VITE_EMAILJS_SERVICE_ID,
+              import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
               formRef.current,
-              { publicKey : import.meta.env.EMAILJS_PUBLIC_KEY }
+              { publicKey : import.meta.env.VITE_EMAILJS_PUBLIC_KEY,}
             ) 
             .then(
-              () => {
-                console.log('SUCCESS!');
+              ( res) => {
+                console.log('SUCCESS!', res.status, res.text);
               },
               (error) => {
-                console.log('FAILED...', error.text);
+                console.log('FAILED...', error.text );
               },
             );
 
