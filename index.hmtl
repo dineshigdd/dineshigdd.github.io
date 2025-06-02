@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinesh - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom CSS for base styles and overrides */
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50 text-gray-800;
+        }
+        /* Smooth scroll for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom styles for the mobile menu toggle */
+        .hamburger-menu span {
+            @apply block w-6 h-0.5 bg-gray-800 my-1 transition-all duration-300 ease-in-out;
+        }
+        .hamburger-menu.open span:nth-child(1) {
+            @apply transform rotate-45 translate-y-1.5;
+        }
+        .hamburger-menu.open span:nth-child(2) {
+            @apply opacity-0;
+        }
+        .hamburger-menu.open span:nth-child(3) {
+            @apply transform -rotate-45 -translate-y-2;
+        }
+        /* Custom Keyframe Animations for modern look */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Delay utilities for staggered animations */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+        .delay-800 { animation-delay: 0.8s; }
+
+        /* Initial state for elements that animate on scroll */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Style for the PDF iframe */
+        .pdf-viewer {
+            width: 100%;
+            height: 800px; /* Adjust height as needed */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+        }
+
+        /* Hide future project tags as they are no longer needed */
+        .future-project-tag, .in-progress, .conceptual {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">Dinesh</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">About</a>
+                <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Projects</a>
+                <a href="#resume" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Resume</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="hamburger-menu focus:outline-none">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg py-4">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium py-2 w-full text-center" onclick="toggleMobileMenu()">About</a>
+                <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium py-2 w-full text-center" onclick="toggleMobileMenu()">Projects</a>
+                <a href="#resume" class="text-gray-700 hover:text-blue-600 font-medium py-2 w-full text-center" onclick="toggleMobileMenu()">Resume</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium py-2 w-full text-center" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4">
+            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://placehold.co/1920x1080/007bff/ffffff?text=Background+Image');"></div>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight animate-fade-in-up">
+                    Hi, I'm <span class="text-yellow-300">Dinesh</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-8 animate-fade-in-up delay-200">
+                    An <span class="font-semibold">Innovative & detail-oriented Web Developer</span> focused on crafting <span class="font-semibold">seamless UX</span> and scalable web applications.
+                </p>
+                <div class="space-x-4 animate-fade-in-up delay-400">
+                    <a href="#projects" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-100 transform hover:scale-105 transition duration-300 ease-in-out">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transform hover:scale-105 transition duration-300 ease-in-out">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 bg-white scroll-animate">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                    <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                        <img src="https://placehold.co/300x300/e0f2fe/007bff?text=Your+Profile" alt="Dinesh's Profile Picture" class="rounded-full border-4 border-blue-500 shadow-xl w-64 h-64 object-cover transform hover:scale-105 transition duration-300 ease-in-out">
+                    </div>
+                    <div class="md:w-2/3 text-lg leading-relaxed text-gray-700">
+                        <p class="mb-4">
+                            Hello! I'm Dinesh, a detail-oriented full-stack developer skilled in HTML, CSS, JavaScript, PHP, WordPress, and frameworks like React, Next.js, and Node.js.
+                        </p>
+                        <p class="mb-4">
+                            I am passionate about building seamless user experiences and scalable web applications. My experience includes contributing to open-source projects, back-end development, and collaborating cross-functionally for dynamic solutions.
+                        </p>
+                        <p class="mb-6">
+                            I am currently pursuing an AS in Business Administration from Foothill College and hold a B.Sc. in Software Development from Western Governors University and an AS in Computer Science from Los Angeles Valley College. My technical proficiencies include JavaScript, PHP, Python, SQL, WordPress, React, MySQL, MongoDB, Express, Node, and Git.
+                        </p>
+                        <a href="#resume" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg text-md font-semibold shadow-md hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out">
+                            View Resume <i class="fas fa-file-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 md:py-24 bg-gray-100 scroll-animate">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">My Latest Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group">
+                        <img src="https://placehold.co/600x400/a7d9ff/007bff?text=NJPC+Hub" alt="New Jersey Parents' Caucus Hub Thumbnail" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">New Jersey Parents' Caucus Hub</h3>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                As a full-stack developer, I contributed to both frontend and backend codebases for this private GitHub project, helping revise user requirements.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Full Stack</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Frontend</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Backend</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="https://github.com/NJPCB" target="_blank" class="text-gray-600 hover:text-gray-800">
+                                    <i class="fab fa-github text-xl"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group">
+                        <img src="https://placehold.co/600x400/b8e0ff/007bff?text=Ace+Film+Studio" alt="Ace Film Studio Website Thumbnail" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Ace Film Studio Website</h3>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                Developed a custom portfolio website using WordPress, based on identified user requirements, and provided ongoing maintenance.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">WordPress</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Web Development</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Maintenance</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    Learn More <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group">
+                        <img src="https://placehold.co/600x400/c9e7ff/007bff?text=ACE+Intranet" alt="ACE Intranet System Thumbnail" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">ACE Intranet System</h3>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                For a non-profit, I gathered user requirements, analyzed the existing system, identified technologies for a custom intranet, and provided staff training.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">WordPress</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">System Analysis</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Training</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    Learn More <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group">
+                        <img src="https://placehold.co/600x400/d9eaff/007bff?text=Open+Source" alt="Open Source Contributions Thumbnail" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Open-Source Contributions</h3>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                Translated design concepts into functional user interfaces, refactored existing codebase for improved performance, and contributed innovative ideas to design teams on projects like Nayak/AlgoListed.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Frontend</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Code Refactoring</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Collaboration</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="https://github.com/Nayak-AI/AlgoListed" target="_blank" class="text-gray-600 hover:text-gray-800">
+                                    <i class="fab fa-github text-xl"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group">
+                        <img src="https://placehold.co/600x400/e6f2ff/007bff?text=New+Project+5" alt="New Project 5 Thumbnail" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Your Next Project Title Here</h3>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                Describe your project here. What problem does it solve? What technologies did you use? What was your role?
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tech 1</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tech 2</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tech 3</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                                </a>
+                                <a href="#" target="_blank" class="text-gray-600 hover:text-gray-800">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group">
+                        <img src="https://placehold.co/600x400/f0f8ff/007bff?text=New+Project+6" alt="New Project 6 Thumbnail" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Another Project Title Here</h3>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                Detail another significant project you've worked on. Focus on your contributions and the impact of the project.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tech A</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tech B</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tech C</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                                </a>
+                                <a href="#" target="_blank" class="text-gray-600 hover:text-gray-800">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="py-16 md:py-24 bg-blue-50 scroll-animate">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">My Resume</h2>
+                <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Here's a quick view of my professional experience and skills. You can also download a PDF version for your convenience.
+                </p>
+
+                <div class="flex flex-col items-center space-y-8">
+                    <div class="w-full max-w-4xl bg-white rounded-xl shadow-xl overflow-hidden">
+                        <iframe src="Resume.pdf" class="pdf-viewer" title="Dinesh's Resume">
+                            Your browser does not support PDFs. Please download the resume below.
+                        </iframe>
+                    </div>
+
+                    <a href="Resume.pdf" download="Dinesh_Resume.pdf" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out">
+                        Download Resume (PDF) <i class="fas fa-download ml-2"></i>
+                    </a>
+                    <p class="text-sm text-gray-500 mt-4">
+                        *Note: PDF preview may vary based on your browser. For best experience, please download.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-gray-800 text-white scroll-animate">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-white mb-12">Get In Touch</h2>
+                <p class="text-center text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+                    I'm always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out!
+                </p>
+                <form class="max-w-xl mx-auto bg-gray-700 p-8 rounded-xl shadow-2xl">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-200 text-sm font-medium mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg bg-gray-600 border border-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-200 text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg bg-gray-600 border border-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-200 text-sm font-medium mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" class="w-full px-4 py-2 rounded-lg bg-gray-600 border border-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your message..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="flex justify-center space-x-6 mt-12">
+                    <a href="https://www.linkedin.com/in/damindadinesh" target="_blank" aria-label="LinkedIn" class="text-gray-300 hover:text-blue-500 transform hover:scale-110 transition duration-300 ease-in-out">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub" class="text-gray-300 hover:text-gray-100 transform hover:scale-110 transition duration-300 ease-in-out">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter" class="text-gray-300 hover:text-blue-400 transform hover:scale-110 transition duration-300 ease-in-out">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p>&copy; <span id="current-year"></span> Dinesh. All rights reserved.</p>
+            <p class="mt-2">Designed with <i class="fas fa-heart text-red-500"></i> by You.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.classList.toggle('open');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // JavaScript for smooth scrolling (already handled by html { scroll-behavior: smooth; } but good to have for older browsers)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open after clicking a link
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Automatically update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for scroll-triggered animations
+        const scrollAnimateElements = document.querySelectorAll('.scroll-animate');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        scrollAnimateElements.forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
